@@ -35,7 +35,7 @@ interface IState {
 }
 
 interface IProps {
-  slides: Slide[];
+  slides: any[];
   goToSlide?: number;
   showNavigation: boolean;
   offsetRadius: number;
@@ -57,12 +57,6 @@ class Carousel extends Component<IProps, IState> {
   goToIn?: number;
 
   static propTypes = {
-    slides: PropTypes.arrayOf(
-      PropTypes.shape({
-        key: PropTypes.any,
-        content: PropTypes.object
-      })
-    ).isRequired,
     goToSlide: PropTypes.number,
     showNavigation: PropTypes.bool,
     offsetRadius: PropTypes.number,
@@ -203,7 +197,7 @@ class Carousel extends Component<IProps, IState> {
       <React.Fragment>
         <Wrapper>
           {this.getPresentableSlides().map(
-            (slide: Slide, presentableIndex: number) => (
+            (slide: any, presentableIndex: number) => (
               <Slide
                 key={slide.key}
                 content={slide.content}
